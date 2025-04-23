@@ -9,12 +9,15 @@ import mediaRoute from "./routes/media.route.js";
 import purchaseRoute from "./routes/purchaseCourse.route.js";
 import courseProgressRoute from "./routes/courseProgress.route.js";
 
+
+console.log(process.env.PORT);
+
 dotenv.config({});
 //call database connection here
 connectDB();
 const app=express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 //default middleware
 app.use(express.json());
@@ -34,6 +37,6 @@ app.use("/api/v1/progress", courseProgressRoute);
 
 http://localhost:8080/api/v1/user/register
 
-app.listen(PORT, ()=>{
+app.listen(8080, "0.0.0.0", ()=>{
     console.log(`Server listen at port ${PORT}`);
     })
