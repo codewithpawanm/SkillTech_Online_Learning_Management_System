@@ -24,6 +24,31 @@ import { AdminRoute, AuthenticatedUser, ProtectedRoute } from "./components/Prot
 import PurchaseCourseProtectedRoute from "./components/PurchaseCourseProtectedRoute";
 import { ThemeProvider } from "./components/ThemeProvider";
 
+import { Fab, Webchat } from '@botpress/webchat'
+import { useState } from 'react'
+
+function app() {
+  const [isWebchatOpen, setIsWebchatOpen] = useState(false)
+  const toggleWebchat = () => {
+    setIsWebchatOpen((prevState) => !prevState)
+  }
+  return (
+    <>
+      <Webchat
+        clientId="44f51c0b-9d1d-4dd2-a6cd-c35897f24573" // Your client ID here
+        style={{
+          width: '300px',
+          height: '400px',
+          display: isWebchatOpen ? 'flex' : 'none',
+          position: 'fixed',
+          bottom: '90px',
+          right: '20px',
+        }}
+      />
+      <Fab onClick={() => toggleWebchat()} style={{ position: 'fixed', bottom: '20px', right: '20px' }} />
+    </>
+  )
+}
 
 const appRouter = createBrowserRouter([
   {
