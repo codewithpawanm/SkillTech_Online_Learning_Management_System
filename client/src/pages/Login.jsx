@@ -169,7 +169,7 @@ const Login = () => {
                   name="email"
                   value={loginInput.email}
                   onChange={(e) => changeInputHandler(e, "login")}
-                  placeholder="Eg. Anamika@gmail.com"
+                  placeholder="Eg. Pawan@gmail.com"
                   required="true"
                 />
               </div>
